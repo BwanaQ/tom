@@ -36,9 +36,10 @@
 }
 
 .heroName {
-    color: #fccd01;
     padding-bottom: 0.2rem;
-    border-bottom: 3px solid #fcc602;
+    color: #fcc602;
+    border-bottom: 6px solid #663399;
+
 }
 
 .heroParagraph{
