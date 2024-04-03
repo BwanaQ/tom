@@ -1,0 +1,21 @@
+.footer{
+    width: 100vw;
+    height: 2rem;
+    background: rgb(40,40,40);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    font-size: small;
+
+}
+.heart{
+    width: 1rem;
+    height: auto;
+    margin: 0 0.2rem;
+}
+
+a{
+    margin: 0 0.2rem;
+    color: #fcc602;  
+}
