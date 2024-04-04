@@ -42,8 +42,8 @@ const Contact = () => {
             <br /><br />
             <span className="contactDesc">Feel free to reach out to me directly for collaborations, inquiries, or just to say hello!</span>
             <form ref={form} className="contactForm" onSubmit={sendEmail}>
-              <input type="text" className="name" placeholder="Your Name" name/>
-              <input type="email" className="email" placeholder="Your Email" />
+              <input type="text" className="name" placeholder="Your Name" name="from_name" />
+              <input type="email" className="email" placeholder="Your Email" name="from_email" />
               <textarea name="message" className="msg" placeholder="Your Message" rows="5"></textarea>
               <button type="submit" value="send" className="submitBtn">Submit</button>
               <div className="links">
