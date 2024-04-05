@@ -10,9 +10,10 @@ import github from'../../assets/github.png';
 
 const Contact = () => {
   const form = useRef();
-  const siteKey = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
+  
   useEffect(() => {
     const loadReCaptchaScript = () => {
+      const siteKey = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
       const script = document.createElement('script');
       script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
       script.async = true;
