@@ -5,7 +5,7 @@ import './contact.css';
 import client1 from'../../assets/client-1.png';
 import client2 from'../../assets/client-2.webp';
 import client3 from'../../assets/client-3.png';
-import linkedIn from'../../assets/linkedin.png';
+import linkedIn from'../../assets/linkedin_icon.png';
 import github from'../../assets/github.png';
 
 const Contact = () => {
@@ -27,7 +27,8 @@ const Contact = () => {
     e.preventDefault();
 
     // Execute reCAPTCHA v3 to get a token
-    const token = await window.grecaptcha.execute('YOUR_SITE_KEY', { action: 'submit' }); // Replace YOUR_SITE_KEY with your actual reCAPTCHA v3 site key
+    const siteKey = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
+    const token = await window.grecaptcha.execute(siteKey, { action: 'submit' });
 
     // Include the obtained token in the form data
     const formData = new FormData(form.current);
