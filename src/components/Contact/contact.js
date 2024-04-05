@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import './contact.css'
 import client1 from'../../assets/client-1.png'
@@ -9,8 +9,11 @@ import github from'../../assets/github.png'
 
 const Contact = () => {
   const form = useRef();
+  const [loading, setLoading] = useState(false);
+
   const sendEmail = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     emailjs
       .sendForm('tom_hunja_portfolio', 'template_v8ztf4e', form.current, {
@@ -20,13 +23,16 @@ const Contact = () => {
         () => {
           console.log('SUCCESS!');
           alert("Your Email has been Sent.")
-          e.target.reset()
+          e.target.reset();
+          setLoading(false);
         },
         (error) => {
           console.log('FAILED...', error.text);
+          setLoading(false);
         },
       );
   };
+
   return (
     <section id="contactPage">
         <div id="clients">
@@ -47,7 +53,9 @@ const Contact = () => {
               <input type="text" className="name" placeholder="Your Name" name="from_name" />
               <input type="email" className="email" placeholder="Your Email" name="from_email" />
               <textarea name="message" className="msg" placeholder="Your Message" rows="5"></textarea>
-              <button type="submit" value="send" className="submitBtn">Submit</button>
+              <button type="submit" value="send" className={`submitBtn${loading ? ' loading' : ''}`} disabled={loading}>
+                {loading ? <div className="spinner"></div> : 'Submit'}
+              </button>
               <div className="links">
                 <a href="https://www.linkedin.com/in/tom-hunja/" target="_blank" rel="noopener noreferrer"><img src={linkedIn} alt="LinkedIn" className="link" /></a>
                 <a href="https://www.github.com/BwanaQ/" target="_blank" rel="noopener noreferrer"><img src={github} alt="Github" className="link" /></a>

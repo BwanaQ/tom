@@ -23,6 +23,7 @@
     font-size: 1rem;
     max-width: 65rem;
 }
+
 .worksImgs {
     display: flex;
     align-items: center;
@@ -31,11 +32,41 @@
     width: 100vw;
     max-width: 65rem;
 }
+
+.workImgContainer {
+    position: relative;
+    margin: 0.5rem;
+}
+
 .workImg {
     object-fit: cover;
     height: 8rem;
-    margin: 0.5rem;
-    border-radius: .3rem;
+    width: auto;
+}
+
+.workImgOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the transparency of the overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.workImgContainer:hover .workImgOverlay {
+    opacity: 1;
+}
+
+.overlayText {
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
 }
 
 .worksBtn{
