@@ -13,8 +13,26 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
+  
+    // Validating form fields
+    const name = form.current.from_name.value.trim();
+    const email = form.current.from_email.value.trim();
+    const message = form.current.message.value.trim();
+  
+    if (!name || !email || !message) {
+      alert("Please fill in all fields.");
+      return;
+    }
+  
+    // Validating email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+  
     setLoading(true);
-
+  
     emailjs
       .sendForm('tom_hunja_portfolio', 'template_v8ztf4e', form.current, {
         publicKey: 'fDqtspqunmXi2ivGX',
@@ -32,7 +50,6 @@ const Contact = () => {
         },
       );
   };
-
   return (
     <section id="contactPage">
         <div id="clients">
@@ -65,5 +82,4 @@ const Contact = () => {
     </section>
   );
 }
-
 export default Contact;
