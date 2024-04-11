@@ -28,7 +28,7 @@ const Skills = () => {
           <img src={laptop} alt="Back-end" className="skillBarImg" />
           <div className="skillBarText">
             <h2>Back-end</h2>
-            <p> build and maintain server-side logic, databases, and application architecture that power web applications and services.</p>
+            <p>I build and maintain server-side logic, databases, and application architecture that power web applications and services.</p>
           </div>
         </div>
       </div>
